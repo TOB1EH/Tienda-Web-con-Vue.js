@@ -1,4 +1,4 @@
-# tps_iw3
+# Tienda-Web-con-Vue.js
 
 This template should help get you started developing with Vue 3 in Vite.
 
@@ -27,4 +27,3 @@ npm run dev
 ```sh
 npm run build
 ```
-# Tienda-Web-con-Vue.js
