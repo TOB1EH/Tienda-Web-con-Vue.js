@@ -119,13 +119,5 @@ La navegación programática se realiza con `router.push()`.
 - [Vite - Herramienta de construcción](https://vite.dev/)
 - [Curso gratuito de Vue.js](https://www.vuemastery.com/)
 
----
-
-## Vista previa de la aplicación
-
-A continuación, una imagen de la página de inicio de TiendaVue para que tengas una idea visual del proyecto:
-
-![Vista previa de TiendaVue](./public/preview-tiendavue.png)
-
 
 
