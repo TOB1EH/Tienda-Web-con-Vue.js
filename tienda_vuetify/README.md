@@ -42,18 +42,6 @@ El proyecto fue creado como parte de las prácticas de frontend para Ingeniería
      ```
      npm install
      ```
-   - **yarn**:
-     ```
-     yarn install
-     ```
-   - **pnpm**:
-     ```
-     pnpm install
-     ```
-   - **bun**:
-     ```
-     bun install
-     ```
 
 3. **Configuración Opcional**:
    - Para suprimir warnings de JSON en Node.js (si es necesario), agrega `NODE_OPTIONS='--no-warnings'` a tus scripts de desarrollo en `package.json`.
