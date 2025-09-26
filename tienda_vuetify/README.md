@@ -1,6 +1,6 @@
 # TiendaVue - Plataforma de Gestión Comercial
 
-![Prototipo de TiendaVue](/src/assets/image.png)  
+![Prototipo de TiendaVue](./public/image.png)  
 
 ## Descripción
 
