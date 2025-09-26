@@ -1,4 +1,11 @@
 {
+  "include": [
+    "src/**/*.js",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
   "compilerOptions": {
     "allowJs": true,
     "target": "es5",

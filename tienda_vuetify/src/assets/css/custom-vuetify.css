@@ -1,0 +1,650 @@
+/* assets/css/custom-vuetify.css */
+/* 
+ * Estilos personalizados para complementar Vuetify 3
+ * Estos estilos extienden y personalizan el comportamiento por defecto de Vuetify
+ */
+
+/* VARIABLES CSS GLOBALES PERSONALIZADAS */
+:root {
+  /* Espaciado personalizado */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  
+  /* Bordes y sombras */
+  --border-radius-card: 12px;
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-elevated: 0 8px 24px rgba(0, 0, 0, 0.12);
+  
+  /* Transiciones */
+  --transition-standard: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.15s ease-out;
+}
+
+/* RESET Y CONFIGURACIONES GLOBALES */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* MEJORAS ESPECÍFICAS PARA VUETIFY COMPONENTS */
+
+/* V-APP: Configuración del contenedor principal */
+.v-application {
+  font-family: 'Roboto', sans-serif !important;
+  background: #FAFAFA !important;
+}
+
+/* V-CARD: Mejoras en las tarjetas */
+.v-card {
+  transition: var(--transition-standard);
+  border-radius: var(--border-radius-card) !important;
+}
+
+.v-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevated) !important;
+}
+
+/* Variante de tarjeta para productos */
+.v-card.product-card {
+  overflow: hidden;
+  position: relative;
+}
+
+.v-card.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1976D2, #42A5F5);
+  opacity: 0;
+  transition: var(--transition-fast);
+}
+
+.v-card.product-card:hover::before {
+  opacity: 1;
+}
+
+/* V-BTN: Mejoras en botones */
+.v-btn {
+  font-weight: 500 !important;
+  letter-spacing: 0.5px !important;
+  transition: var(--transition-standard) !important;
+}
+
+/* Botón de carrito personalizado */
+.v-btn.cart-btn {
+  background: linear-gradient(45deg, #4CAF50, #66BB6A) !important;
+  color: white !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.v-btn.cart-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.v-btn.cart-btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* V-TEXT-FIELD: Mejoras en campos de texto */
+.v-text-field .v-field {
+  border-radius: 8px !important;
+  transition: var(--transition-standard);
+}
+
+.v-text-field--focused .v-field {
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+/* Campo de búsqueda especial */
+.search-field .v-field {
+  background: white !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+/* V-NAVIGATION-DRAWER: Mejoras en el drawer */
+.v-navigation-drawer {
+  border-right: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.v-navigation-drawer .v-list-item {
+  border-radius: 8px !important;
+  margin: 4px 8px !important;
+  transition: var(--transition-fast);
+}
+
+.v-navigation-drawer .v-list-item:hover {
+  transform: translateX(4px);
+}
+
+.v-navigation-drawer .v-list-item--active {
+  background: linear-gradient(90deg, rgba(25, 118, 210, 0.1), rgba(25, 118, 210, 0.05)) !important;
+  border-right: 3px solid #1976D2 !important;
+}
+
+/* V-APP-BAR: Mejoras en la barra de aplicación */
+.v-app-bar {
+  backdrop-filter: blur(10px) !important;
+  background: rgba(25, 118, 210, 0.95) !important;
+}
+
+.v-app-bar .v-toolbar__content {
+  padding: 0 16px !important;
+}
+
+/* V-LIST: Mejoras en listas */
+.v-list-item {
+  border-radius: 8px !important;
+  margin: 2px 4px !important;
+  transition: var(--transition-fast);
+}
+
+.v-list-item:hover {
+  background: rgba(25, 118, 210, 0.04) !important;
+}
+
+/* Lista del carrito */
+.cart-list .v-list-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 0 !important;
+  margin: 0 !important;
+  padding: 16px !important;
+}
+
+.cart-list .v-list-item:last-child {
+  border-bottom: none;
+}
+
+/* V-CHIP: Mejoras en chips */
+.v-chip {
+  font-weight: 500 !important;
+  letter-spacing: 0.25px !important;
+}
+
+/* Chip de stock */
+.stock-chip.disponible {
+  background: linear-gradient(45deg, #4CAF50, #66BB6A) !important;
+  color: white !important;
+}
+
+.stock-chip.agotado {
+  background: linear-gradient(45deg, #F44336, #EF5350) !important;
+  color: white !important;
+}
+
+/* V-ALERT: Mejoras en alertas */
+.v-alert {
+  border-radius: var(--border-radius-card) !important;
+  border-left: 4px solid !important;
+}
+
+/* V-SNACKBAR: Mejoras en snackbars */
+.v-snackbar {
+  border-radius: var(--border-radius-card) !important;
+}
+
+/* V-DATA-TABLE: Mejoras en tablas */
+.v-data-table {
+  border-radius: var(--border-radius-card) !important;
+  overflow: hidden;
+}
+
+.v-data-table__wrapper {
+  border-radius: var(--border-radius-card) !important;
+}
+
+.v-data-table tbody tr:hover {
+  background: rgba(25, 118, 210, 0.02) !important;
+}
+
+/* CLASES UTILITARIAS PERSONALIZADAS */
+
+/* Animaciones personalizadas */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: var(--transition-standard);
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Efectos de hover para tarjetas */
+.hover-lift {
+  transition: var(--transition-standard);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Gradientes personalizados para fondos */
+.gradient-primary {
+  background: linear-gradient(135deg, #1976D2, #42A5F5) !important;
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A) !important;
+}
+
+.gradient-warning {
+  background: linear-gradient(135deg, #FF9800, #FFB74D) !important;
+}
+
+/* Sombras personalizadas */
+.shadow-soft {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-medium {
+  box-shadow: var(--shadow-card) !important;
+}
+
+.shadow-strong {
+  box-shadow: var(--shadow-elevated) !important;
+}
+
+/* Spacing personalizado */
+.pa-xs { padding: var(--spacing-xs) !important; }
+.pa-sm { padding: var(--spacing-sm) !important; }
+.pa-md { padding: var(--spacing-md) !important; }
+.pa-lg { padding: var(--spacing-lg) !important; }
+.pa-xl { padding: var(--spacing-xl) !important; }
+
+.ma-xs { margin: var(--spacing-xs) !important; }
+.ma-sm { margin: var(--spacing-sm) !important; }
+.ma-md { margin: var(--spacing-md) !important; }
+.ma-lg { margin: var(--spacing-lg) !important; }
+.ma-xl { margin: var(--spacing-xl) !important; }
+
+/* RESPONSIVE HELPERS ADICIONALES */
+@media (max-width: 600px) {
+  /* Mejoras móviles para Vuetify */
+  .v-card {
+    margin: 8px !important;
+  }
+  
+  .v-btn {
+    min-width: auto !important;
+  }
+  
+  .v-text-field {
+    margin-bottom: 8px !important;
+  }
+  
+  .v-navigation-drawer {
+    width: 280px !important;
+  }
+}
+
+@media (max-width: 960px) {
+  /* Tablet adjustments */
+  .v-container {
+    padding: 12px !important;
+  }
+}
+
+/* LOADING STATES PERSONALIZADOS */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* ESTADOS DE INTERACCIÓN */
+.interactive-element {
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.interactive-element:hover {
+  opacity: 0.8;
+}
+
+.interactive-element:active {
+  transform: scale(0.98);
+}
+
+/* MEJORAS ESPECÍFICAS PARA COMERCIO ELECTRÓNICO */
+
+/* Badge de notificación en carrito */
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: #F44336 !important;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Card de producto específico */
+.product-card-custom {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-custom .product-image {
+  transition: var(--transition-standard);
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card-custom:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-card-custom .product-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 16px;
+  transform: translateY(100%);
+  transition: var(--transition-standard);
+}
+
+.product-card-custom:hover .product-overlay {
+  transform: translateY(0);
+}
+
+/* Precio destacado */
+.price-display {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #4CAF50 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.price-display.discounted {
+  color: #F44336 !important;
+}
+
+.price-display .original-price {
+  text-decoration: line-through;
+  color: #9E9E9E !important;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+/* Estados de stock visuales */
+.stock-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.stock-indicator.high-stock {
+  background: rgba(76, 175, 80, 0.1);
+  color: #388E3C;
+}
+
+.stock-indicator.medium-stock {
+  background: rgba(255, 152, 0, 0.1);
+  color: #F57C00;
+}
+
+.stock-indicator.low-stock {
+  background: rgba(244, 67, 54, 0.1);
+  color: #D32F2F;
+}
+
+.stock-indicator.out-of-stock {
+  background: rgba(158, 158, 158, 0.1);
+  color: #616161;
+}
+
+/* MEJORAS EN FORMULARIOS */
+.form-section {
+  background: white;
+  border-radius: var(--border-radius-card);
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 16px;
+}
+
+.form-section .section-title {
+  color: #1976D2;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(25, 118, 210, 0.1);
+}
+
+/* Validación visual mejorada */
+.v-text-field.error .v-field {
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.v-text-field.success .v-field {
+  border-color: #4CAF50 !important;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2) !important;
+}
+
+/* MEJORAS EN NAVEGACIÓN */
+.breadcrumbs-custom {
+  background: white;
+  padding: 12px 16px;
+  border-radius: var(--border-radius-card);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.breadcrumbs-custom .v-breadcrumbs-item {
+  font-weight: 500;
+}
+
+.breadcrumbs-custom .v-breadcrumbs-item:last-child {
+  color: #1976D2 !important;
+}
+
+/* UTILIDADES DE TEXTO */
+.text-gradient-primary {
+  background: linear-gradient(45deg, #1976D2, #42A5F5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* MEJORAS EN CONTENEDORES */
+.main-container {
+  min-height: calc(100vh - 64px); /* Altura total menos app-bar */
+  background: linear-gradient(135deg, #FAFAFA 0%, #F5F5F5 100%);
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ESTADOS EMPTY/PLACEHOLDER */
+.empty-state-custom {
+  text-align: center;
+  padding: 48px 24px;
+  background: white;
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.empty-state-custom .empty-icon {
+  font-size: 4rem;
+  opacity: 0.3;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.empty-state-custom .empty-title {
+  color: #1976D2;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty-state-custom .empty-description {
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+/* ANIMACIONES ADICIONALES */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: staggerFadeIn 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes staggerFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MEJORAS DE ACCESIBILIDAD */
+.v-btn:focus-visible,
+.v-text-field:focus-visible,
+.v-card:focus-visible {
+  outline: 2px solid #1976D2 !important;
+  outline-offset: 2px !important;
+}
+
+/* Mejora en contraste para usuarios con discapacidades visuales */
+@media (prefers-contrast: high) {
+  .v-card {
+    border: 1px solid #333 !important;
+  }
+  
+  .v-btn {
+    border: 2px solid currentColor !important;
+  }
+}
+
+/* Respeta las preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* DARK THEME OVERRIDES (para futuro uso) */
+.v-theme--dark {
+  .form-section {
+    background: #1E1E1E !important;
+  }
+  
+  .breadcrumbs-custom {
+    background: #1E1E1E !important;
+  }
+  
+  .empty-state-custom {
+    background: #1E1E1E !important;
+  }
+}
+
+/* DEBUG HELPERS (solo desarrollo) */
+.debug-mode .v-card {
+  border: 1px dashed #FF5722 !important;
+}
+
+.debug-mode .v-container {
+  border: 1px dotted #4CAF50 !important;
+}
+
+/* PRINT STYLES */
+@media print {
+  .v-navigation-drawer,
+  .v-app-bar,
+  .v-btn,
+  .debug-info {
+    display: none !important;
+  }
+  
+  .v-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
