@@ -1,79 +1,112 @@
-# Vuetify (Default)
+# TiendaVue - Plataforma de Gestión Comercial
 
-This is the official scaffolding tool for Vuetify, designed to give you a head start in building your new Vuetify application. It sets up a base template with all the necessary configurations and standard directory structure, enabling you to begin development without the hassle of setting up the project from scratch.
+![Prototipo de TiendaVue](/src/assets/image.png)  
 
-## ❗️ Important Links
+## Descripción
 
-- 📄 [Docs](https://vuetifyjs.com/)
-- 🚨 [Issues](https://issues.vuetifyjs.com/)
-- 🏬 [Store](https://store.vuetifyjs.com/)
-- 🎮 [Playground](https://play.vuetifyjs.com/)
-- 💬 [Discord](https://community.vuetifyjs.com)
+TiendaVue es una aplicación web moderna y responsive desarrollada con Vue.js 3 y Vuetify 3, diseñada para la gestión de una tienda en línea. Esta plataforma permite a los usuarios visualizar productos, agregar items a un carrito de compras, gestionar clientes y acceder a un dashboard principal.
 
-## 💿 Install
+El proyecto fue creado como parte de las prácticas de frontend para Ingeniería Web III 2025 (IW 2025), enfocándose en el uso de componentes Material Design, manejo de estado con refs y computed properties, y navegación SPA con Vue Router.
 
-Set up your project using your preferred package manager. Use the corresponding command to install the dependencies:
+## Características Principales
 
-| Package Manager                                                | Command        |
-|---------------------------------------------------------------|----------------|
-| [yarn](https://yarnpkg.com/getting-started)                   | `yarn install` |
-| [npm](https://docs.npmjs.com/cli/v7/commands/npm-install)     | `npm install`  |
-| [pnpm](https://pnpm.io/installation)                          | `pnpm install` |
-| [bun](https://bun.sh/#getting-started)                        | `bun install`  |
+- **Dashboard Inicial**: Pantalla de bienvenida con estadísticas clave (productos, clientes, ventas) y accesos rápidos a secciones principales.
+- **Gestión de Productos**: Lista de productos con detalles como nombre, precio y stock. Incluye vista detallada por producto y funcionalidad para agregar al carrito.
+- **Carrito de Compras**: Gestión completa del carrito con incremento/decremento de cantidades, eliminación de items, cálculo de subtotales y total general. Soporte para notificaciones en tiempo real.
+- **Gestión de Clientes**: Sección dedicada para visualizar y potencialmente registrar clientes (implementación básica).
+- **Navegación Responsive**: Menú lateral (drawer) adaptable a dispositivos móviles.
+- **Sistema de Notificaciones**: Snackbar de Vuetify para feedback al usuario (éxitos, errores, info).
+- **Base de Datos Simulada**: Productos hardcodeados en el componente principal para demostración, con verificación de stock al agregar al carrito.
 
-After completing the installation, your environment is ready for Vuetify development.
+## Tecnologías Utilizadas
 
-## ✨ Features
+- **Frontend**: Vue.js 3 (Composition API)
+- **UI Framework**: Vuetify 3 (basado en Material Design 3)
+- **Enrutamiento**: Vue Router 4
+- **Herramientas de Construcción**: Vite (para desarrollo rápido y HMR)
+- **Iconos**: Material Design Icons (@mdi/font)
+- **Estilos**: Sass para personalización de Vuetify
+- **Otras Dependencias**: Pinia (preparado para state management futuro), unplugin-vue-components para importación automática.
 
-- 🖼️ **Optimized Front-End Stack**: Leverage the latest Vue 3 and Vuetify 3 for a modern, reactive UI development experience. [Vue 3](https://v3.vuejs.org/) | [Vuetify 3](https://vuetifyjs.com/en/)
-- 🗃️ **State Management**: Integrated with [Pinia](https://pinia.vuejs.org/), the intuitive, modular state management solution for Vue.
-- 🚦 **Routing and Layouts**: Utilizes Vue Router for SPA navigation and vite-plugin-vue-layouts for organizing Vue file layouts. [Vue Router](https://router.vuejs.org/) | [vite-plugin-vue-layouts](https://github.com/JohnCampionJr/vite-plugin-vue-layouts)
-- ⚡ **Next-Gen Tooling**: Powered by Vite, experience fast cold starts and instant HMR (Hot Module Replacement). [Vite](https://vitejs.dev/)
-- 🧩 **Automated Component Importing**: Streamline your workflow with unplugin-vue-components, automatically importing components as you use them. [unplugin-vue-components](https://github.com/antfu/unplugin-vue-components)
+## Instalación
 
-These features are curated to provide a seamless development experience from setup to deployment, ensuring that your Vuetify application is both powerful and maintainable.
+1. **Clona o Descarga el Proyecto**:
+   Asegúrate de estar en el directorio del proyecto:
+   ```
+   cd /ruta/al/proyecto/tienda_vuetify
+   ```
 
-## 💡 Usage
+2. **Instala las Dependencias**:
+   Usa tu gestor de paquetes preferido:
+   - **npm**:
+     ```
+     npm install
+     ```
+   - **yarn**:
+     ```
+     yarn install
+     ```
+   - **pnpm**:
+     ```
+     pnpm install
+     ```
+   - **bun**:
+     ```
+     bun install
+     ```
 
-This section covers how to start the development server and build your project for production.
+3. **Configuración Opcional**:
+   - Para suprimir warnings de JSON en Node.js (si es necesario), agrega `NODE_OPTIONS='--no-warnings'` a tus scripts de desarrollo en `package.json`.
+   - Asegúrate de tener Node.js >= 18 y npm/yarn instalados.
 
-### Starting the Development Server
+## Uso
 
-To start the development server with hot-reload, run the following command. The server will be accessible at [http://localhost:3000](http://localhost:3000):
+### Desarrollo Local
 
-```bash
-yarn dev
+Ejecuta el servidor de desarrollo con hot-reload:
+```
+npm run dev
 ```
 
-(Repeat for npm, pnpm, and bun with respective commands.)
+La aplicación estará disponible en [http://localhost:3000](http://localhost:3000). Abre esta URL en tu navegador para ver el prototipo en acción.
 
-> Add NODE_OPTIONS='--no-warnings' to suppress the JSON import warnings that happen as part of the Vuetify import mapping. If you are on Node [v21.3.0](https://nodejs.org/en/blog/release/v21.3.0) or higher, you can change this to NODE_OPTIONS='--disable-warning=5401'. If you don't mind the warning, you can remove this from your package.json dev script.
+### Construcción para Producción
 
-### Building for Production
-
-To build your project for production, use:
-
-```bash
-yarn build
+Para generar una versión optimizada lista para deploy:
+```
+npm run build
 ```
 
-(Repeat for npm, pnpm, and bun with respective commands.)
+### Navegación
 
-Once the build process is completed, your application will be ready for deployment in a production environment.
+- **/**: Dashboard de inicio.
+- **/productos**: Lista de productos.
+- **/productos/:id**: Detalle de un producto específico.
+- **/carrito**: Vista del carrito de compras.
+- **/clientes**: Gestión de clientes.
 
-## 💪 Support Vuetify Development
+### Funcionalidades Clave en Acción
 
-This project is built with [Vuetify](https://vuetifyjs.com/en/), a UI Library with a comprehensive collection of Vue components. Vuetify is an MIT licensed Open Source project that has been made possible due to the generous contributions by our [sponsors and backers](https://vuetifyjs.com/introduction/sponsors-and-backers/). If you are interested in supporting this project, please consider:
+1. Navega a `/productos` y haz clic en "Agregar al Carrito" en un producto con stock.
+2. Ve a `/carrito` para modificar cantidades o eliminar items.
+3. En móvil (simulado), el drawer se colapsa y se accede vía deslizamiento.
 
-- [Requesting Enterprise Support](https://support.vuetifyjs.com/)
-- [Sponsoring John on Github](https://github.com/users/johnleider/sponsorship)
-- [Sponsoring Kael on Github](https://github.com/users/kaelwd/sponsorship)
-- [Supporting the team on Open Collective](https://opencollective.com/vuetify)
-- [Becoming a sponsor on Patreon](https://www.patreon.com/vuetify)
-- [Becoming a subscriber on Tidelift](https://tidelift.com/subscription/npm/vuetify)
-- [Making a one-time donation with Paypal](https://paypal.me/vuetify)
+## Estructura del Proyecto
 
-## 📑 License
-[MIT](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2016-present Vuetify, LLC
+```
+tienda_vuetify/
+├── public/                 # Archivos estáticos (favicon, etc.)
+├── src/
+│   ├── assets/             # Imágenes, CSS personalizados
+│   │   └── css/custom-vuetify.css
+│   ├── components/         # Componentes reutilizables (CarritoMinimo, ProductosLista, etc.)
+│   ├── plugins/            # Configuraciones (vuetify.js)
+│   ├── views/              # Vistas principales (InicioView, ProductosView, etc.)
+│   ├── App.vue             # Componente raíz con layout y estado global
+│   ├── main.js             # Punto de entrada y montaje
+│   └── router.js           # Definición de rutas
+├── index.html              # Plantilla HTML principal
+├── package.json            # Dependencias y scripts
+├── vite.config.mjs         # Configuración de Vite
+└── README.md               # Este archivo
+```
