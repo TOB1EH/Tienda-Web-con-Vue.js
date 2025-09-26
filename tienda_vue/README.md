@@ -1,6 +1,6 @@
 # Tienda-Web-con-Vue.js - Documentación Completa
 
-Este proyecto es una tienda web desarrollada 100% con Vue 3 y Vite. Está diseñado como una práctica y tutorial para aprender Vue.js desde cero, con ejemplos claros y funcionales.
+Este proyecto es una tienda web desarrollada 100% con Vue 3 y Vite. Está diseñado como una práctica y tutorial para aprender Vue.js desde cero, con ejemplos claros y funcionales. Orientado a la vista del Administrador el cual puede administrar Usuarios, productos asi como tambien ver metricas respecto al estado actual de la plataforma.
 
 ---
 
